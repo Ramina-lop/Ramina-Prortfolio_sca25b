@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ramina Zununova — Creative Developer Portfolio</title>
+  <meta name="description" content="Портфолио Рамины Зунуновой — студентки Ala-Too College, специальность Software Development. Веб-разработка, игры и визуальный дизайн.">
+  <meta name="theme-color" content="#6B1D2C">
+
+  <!-- Иконка сайта (favicon). Позже можно заменить на файл assets/favicon.svg -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236B1D2C'/%3E%3Ctext x='32' y='45' font-size='38' text-anchor='middle' fill='%23F3E1E6' font-family='Georgia, serif' font-style='italic'%3ER%3C/text%3E%3C/svg%3E">
+
+  <!-- Шрифты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap&subset=cyrillic" rel="stylesheet">
+
+  <!-- Основные файлы -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <!-- Индикатор прокрутки и кастомный курсор (оформляются в CSS, управляются в JS) -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav" aria-label="Главное меню">
+      <a class="nav__logo" href="#home" aria-label="Ramina Zununova — на главную">Ramina<span class="nav__logo-dot">.</span>dev</a>
+
+      <ul class="nav__list" id="nav-list">
+        <li><a class="nav__link" href="#home">Home</a></li>
+        <li><a class="nav__link" href="#about">About Me</a></li>
+        <li><a class="nav__link" href="#skills">Skills</a></li>
+        <li><a class="nav__link" href="#projects">Projects</a></li>
+        <li><a class="nav__link" href="#experience">Experience</a></li>
+        <li><a class="nav__link" href="#creative">Creative Side</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="button button--small nav__cta" href="#contact">Let's talk</a>
+
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Открыть меню">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HOME ============ -->
+    <section class="section hero" id="home" aria-labelledby="hero-title">
+      <div class="container">
+
+        <p class="hero__masthead">Issue №01 · Portfolio 2026 · IT Student Edition</p>
+
+        <div class="hero__grid">
+          <div class="hero__text">
+            <h1 class="hero__title" id="hero-title">
+              <span class="hero__line">Creative</span>
+              <span class="hero__line hero__line--indent"><em>developer</em></span>
+              <span class="hero__line">in progress</span>
+            </h1>
+
+            <p class="hero__lead">
+              Привет, я Рамина Зунунова. Учусь на втором курсе Software Development в Ala-Too College,
+              пробую себя в веб-разработке, играх и визуальном дизайне.
+            </p>
+
+            <div class="hero__buttons">
+              <a class="button button--primary" href="#projects">View projects</a>
+              <a class="button button--outline" href="#about">About me</a>
+            </div>
+          </div>
+
+          <!-- Коллаж справа -->
+          <div class="hero__collage" aria-label="Коллаж с фотографией Рамины">
+            <figure class="collage__photo">
+              <img src="assets/img/6008010140566621811.jpg" alt="Рамина на фоне горного озера в Кыргызстане" width="960" height="1280">
+            </figure>
+
+            <figure class="collage__card collage__card--code">
+              <figcaption class="collage__card-label">now learning</figcaption>
+              <p class="collage__card-text">Python · Java · JavaScript</p>
+            </figure>
+
+            <div class="stamp" aria-hidden="true">
+              <span class="stamp__text">open to internships · 2026 ·</span>
+            </div>
+
+            <span class="sticker sticker--pink" aria-hidden="true">HTML</span>
+            <span class="sticker sticker--blue" aria-hidden="true">JS</span>
+            <span class="sticker sticker--green" aria-hidden="true">Canva</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Бегущая строка -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__item">Frontend ✦ Python ✦ Java ✦ JavaScript ✦ HTML &amp; CSS ✦ Game ideas ✦ Canva ✦ </span>
+          <span class="marquee__item">Frontend ✦ Python ✦ Java ✦ JavaScript ✦ HTML &amp; CSS ✦ Game ideas ✦ Canva ✦ </span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ ABOUT ME ============ -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container about__grid">
+
+        <div class="about__photos">
+          <figure class="polaroid polaroid--one">
+            <span class="tape tape--pink" aria-hidden="true"></span>
+            <img src="assets/img/6008010140566621800.jpg" alt="Рамина показывает знак мира на фоне озера" loading="lazy" width="960" height="1280">
+            <figcaption class="polaroid__caption">горы — бубубу</figcaption>
+          </figure>
+
+          <figure class="polaroid polaroid--two">
+            <span class="tape tape--blue" aria-hidden="true"></span>
+            <video class="polaroid__video" controls muted playsinline preload="metadata">
+              <source src="assets/video/WhatsApp Video 2026-11-05 at 22.13.12.mp4" type="video/mp4">
+              Ваш браузер не поддерживает видео.
+            </video>
+            <figcaption class="polaroid__caption">за работой</figcaption>
+          </figure>
+        </div>
+
+        <div class="about__content">
+          <h2 class="section__title" id="about-title">A little <em>about</em> me</h2>
+
+          <p class="about__text about__text--dropcap">
+            Я родилась в Кыргызстане, а с 2019 по 2024 год жила в Турции. Там я поступила в IT-лицей
+            и впервые познакомилась с Python, HTML и C#. Сейчас я снова дома и учусь в Ala-Too College
+            по специальности «Программное обеспечение вычислительной техники и автоматизированных систем».
+          </p>
+
+          <p class="about__text">
+            Я только начинаю свой путь в IT, поэтому называю себя начинающим разработчиком. Мне нравится
+            учиться, работать в команде и соединять код с визуальным дизайном.
+          </p>
+
+          <blockquote class="pull-quote">
+            Учусь делать так, чтобы код был не только рабочим, но и красивым.
+          </blockquote>
+
+          <h3 class="visually-hidden">Коротко обо мне</h3>
+          <ul class="facts">
+            <li class="fact fact--pink">
+              <span class="fact__label">Studying</span>
+              <span class="fact__value">Software Development, 2 курс</span>
+            </li>
+            <li class="fact fact--blue">
+              <span class="fact__label">College</span>
+              <span class="fact__value">Ala-Too College</span>
+            </li>
+            <li class="fact fact--green">
+              <span class="fact__label">Based in</span>
+              <span class="fact__value">Kyrgyzstan</span>
+            </li>
+            <li class="fact fact--white">
+              <span class="fact__label">Languages</span>
+              <span class="fact__value">RU · EN (B2) · TR</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section skills" id="skills" aria-labelledby="skills-title">
+      <div class="container skills__grid">
+
+        <div class="skills__intro">
+          <h2 class="section__title" id="skills-title">Skills &amp; <em>tools</em></h2>
+          <p class="skills__note">
+            Мой уровень — beginner / developing. Здесь я честно показываю, что уже знаю
+            и чему только учусь.
+          </p>
+        </div>
+
+        <div class="skills__list">
+
+          <article class="skill-group">
+            <h3 class="skill-group__title">Programming</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">Python</span>
+                  <span class="skill-item__level">Developing</span>
+                </button>
+                <p class="skill-item__more">Основы изучала в лицее в Турции. Продолжаю практиковаться на учебных заданиях.</p>
+              </li>
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">Java</span>
+                  <span class="skill-item__level">Developing</span>
+                </button>
+                <p class="skill-item__more">Изучаю в колледже: базовый синтаксис и принципы ООП.</p>
+              </li>
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">C#</span>
+                  <span class="skill-item__level">Basic</span>
+                </button>
+                <p class="skill-item__more">Базовые знания, полученные в лицее.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3 class="skill-group__title">Web</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">HTML &amp; CSS</span>
+                  <span class="skill-item__level">Developing</span>
+                </button>
+                <p class="skill-item__more">Верстаю страницы, учусь делать адаптивные макеты. Это портфолио — моя практика.</p>
+              </li>
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">JavaScript</span>
+                  <span class="skill-item__level">Learning</span>
+                </button>
+                <p class="skill-item__more">Осваиваю работу с DOM, событиями и простыми анимациями.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3 class="skill-group__title">Design &amp; tools</h3>
+            <ul class="skill-list">
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">Canva</span>
+                  <span class="skill-item__level">Comfortable</span>
+                </button>
+                <p class="skill-item__more">Делаю плакаты и визуальные материалы для школьных мероприятий.</p>
+              </li>
+              <li class="skill-item">
+                <button class="skill-item__button" type="button" aria-expanded="false">
+                  <span class="skill-item__name">Visual Studio Code</span>
+                  <span class="skill-item__level">Daily use</span>
+                </button>
+                <p class="skill-item__more">Мой основной редактор кода.</p>
+              </li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3 class="skill-group__title">Languages</h3>
+            <ul class="stickers">
+              <li class="sticker sticker--pink">Русский</li>
+              <li class="sticker sticker--blue">English · B2</li>
+              <li class="sticker sticker--green">Türkçe</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+
+        <div class="projects__header">
+          <h2 class="section__title" id="projects-title">Selected <em>works</em></h2>
+
+          <div class="filters" role="group" aria-label="Фильтр проектов">
+            <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-filter="hackathon" aria-pressed="false">Hackathons</button>
+            <button class="filter" type="button" data-filter="design" aria-pressed="false">Design</button>
+            <button class="filter" type="button" data-filter="club" aria-pressed="false">Clubs</button>
+          </div>
+        </div>
+
+        <p class="projects__note">
+          Это учебные и командные проекты. Под каждым я описываю, что именно делала я.
+        </p>
+
+        <div class="projects__grid">
+
+          <article class="project-card project-card--large project-card--pink" data-category="hackathon">
+            <span class="tape tape--green" aria-hidden="true"></span>
+            <div class="project-card__preview">
+              <div class="project-card__placeholder" aria-hidden="true">Smart<br>Canteen</div>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__meta">School hackathon · team project</p>
+              <h3 class="project-card__title">Smart Canteen</h3>
+              <p class="project-card__text">
+                Идея для школьной столовой, которая помогает сократить пищевые отходы и разумнее
+                тратить бюджет.
+              </p>
+              <ul class="tags">
+                <li class="tag">Research</li>
+                <li class="tag">Presentation</li>
+                <li class="tag">Teamwork</li>
+              </ul>
+              <button class="project-card__button button button--outline button--small" type="button"
+                data-modal-open="project-canteen" aria-label="Подробнее о проекте Smart Canteen">Read more</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--medium project-card--blue" data-category="hackathon">
+            <div class="project-card__preview">
+              <div class="project-card__placeholder" aria-hidden="true">Visual<br>Novel</div>
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__meta">GameLab · AIU · 3 days</p>
+              <h3 class="project-card__title">Online visual novel</h3>
+              <p class="project-card__text">
+                Трёхдневный хакатон, где наша команда придумывала и собирала онлайн-визуальную новеллу.
+              </p>
+              <ul class="tags">
+                <li class="tag">Game concept</li>
+                <li class="tag">Teamwork</li>
+              </ul>
+              <button class="project-card__button button button--outline button--small" type="button"
+                data-modal-open="project-novel" aria-label="Подробнее о визуальной новелле">Read more</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--medium project-card--white" data-category="design">
+            <div class="project-card__preview project-card__preview--image">
+              <img src="assets/img/6008010140566621803.jpg" alt="Афиша «Весенний бал» с марками и бабочкой" loading="lazy" width="905" height="1280">
+            </div>
+            <div class="project-card__body">
+              <p class="project-card__meta">Canva · school event</p>
+              <h3 class="project-card__title">Spring Ball posters</h3>
+              <p class="project-card__text">
+                Афиши для школьного конкурса «Весенний бал» и «Весенний дуэт». Подбор шрифтов,
+                цветов и композиции.
+              </p>
+              <ul class="tags">
+                <li class="tag">Canva</li>
+                <li class="tag">Poster design</li>
+              </ul>
+              <button class="project-card__button button button--outline button--small" type="button"
+                data-modal-open="project-posters" aria-label="Подробнее об афишах">Read more</button>
+            </div>
+          </article>
+
+          <article class="project-card project-card--small project-card--green" data-category="club">
+            <div class="project-card__body">
+              <p class="project-card__meta">Ala-Too College · ongoing</p>
+              <h3 class="project-card__title">TechYard</h3>
+              <p class="project-card__text">
+                Я участница IT-клуба колледжа: учусь у других, пробую командные проекты.
+              </p>
+              <ul class="tags">
+                <li class="tag">IT club</li>
+                <li class="tag">Community</li>
+              </ul>
+              <button class="project-card__button button button--outline button--small" type="button"
+                data-modal-open="project-techyard" aria-label="Подробнее о клубе TechYard">Read more</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ EXPERIENCE & ACTIVITIES ============ -->
+    <section class="section experience" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+
+        <h2 class="section__title" id="experience-title">Experience &amp; <em>activities</em></h2>
+
+        <ul class="counters">
+          <li class="counter">
+            <span class="counter__number" data-count="2">1</span>
+            <span class="counter__label">страны, где я училась</span>
+          </li>
+          <li class="counter">
+            <span class="counter__number" data-count="2">2</span>
+            <span class="counter__label">хакатона</span>
+          </li>
+          <li class="counter">
+            <span class="counter__number" data-count="3">3</span>
+            <span class="counter__label">языка</span>
+          </li>
+          <li class="counter">
+            <span class="counter__number" data-count="1">1</span>
+            <span class="counter__label">IT-клуб</span>
+          </li>
+        </ul>
+
+        <ol class="timeline">
+
+          <li class="timeline__item timeline__item--education">
+            <article class="timeline__card">
+              <p class="timeline__date">До 2019</p>
+              <h3 class="timeline__title">Школа в Кыргызстане</h3>
+              <p class="timeline__text">Училась до 5 класса.</p>
+              <p class="timeline__type">Education</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--education">
+            <article class="timeline__card">
+              <p class="timeline__date">2019 – 2024</p>
+              <h3 class="timeline__title">Турция, IT-лицей</h3>
+              <p class="timeline__text">Переехала с семьёй, продолжила учёбу. Изучала основы Python, HTML и C#.</p>
+              <p class="timeline__type">Education</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--work">
+            <article class="timeline__card">
+              <p class="timeline__date">Лето 2024</p>
+              <h3 class="timeline__title">Помощница в текстильной мастерской</h3>
+              <p class="timeline__text">Стамбул. Сортировала и складывала ткани, помогала готовить и переносить материалы, участвовала в производственном процессе.</p>
+              <p class="timeline__type">Work</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--education">
+            <article class="timeline__card">
+              <p class="timeline__date">2024</p>
+              <h3 class="timeline__title">Возвращение в Кыргызстан</h3>
+              <p class="timeline__text">По семейным обстоятельствам вернулась и продолжила школьное образование.</p>
+              <p class="timeline__type">Education</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--hackathon">
+            <article class="timeline__card">
+              <p class="timeline__date">School years</p>
+              <h3 class="timeline__title">Hackathon: Smart Canteen</h3>
+              <p class="timeline__text">Собирала информацию и подготовила видеопрезентацию командного проекта.</p>
+              <p class="timeline__type">Hackathon</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--hackathon">
+            <article class="timeline__card">
+              <p class="timeline__date">GameLab · AIU</p>
+              <h3 class="timeline__title">Трёхдневный хакатон</h3>
+              <p class="timeline__text">Работали командой над онлайн-визуальной новеллой.</p>
+              <p class="timeline__type">Hackathon</p>
+            </article>
+          </li>
+
+          <li class="timeline__item timeline__item--education">
+            <article class="timeline__card">
+              <p class="timeline__date">Сейчас</p>
+              <h3 class="timeline__title">Ala-Too College, 2 курс</h3>
+              <p class="timeline__text">Software Development. Участница IT-клуба TechYard.</p>
+              <p class="timeline__type">Education · Club</p>
+            </article>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ============ CREATIVE SIDE ============ -->
+    <section class="section creative" id="creative" aria-labelledby="creative-title">
+      <div class="container">
+
+        <h2 class="section__title" id="creative-title">Creative <em>side</em></h2>
+        <p class="creative__lead">
+          Помимо кода, я рисую на холсте, делаю плакаты в Canva и помогаю оформлять школьные инсталляции.
+          Мне важны композиция и цвет, и это влияет на то, как я думаю о дизайне сайтов.
+        </p>
+
+        <div class="gallery">
+          <figure class="gallery__item gallery__item--wide">
+            <img src="assets/img/6008010140566621796.jpg" alt="Картина маслом: рассвет над водой, лодки в синей дымке" loading="lazy" width="1280" height="960">
+            <figcaption class="gallery__caption">Копия картины: Впечатление. Восходящее солнце</figcaption>
+          </figure>
+
+          <figure class="gallery__item gallery__item--tall">
+            <img src="assets/img/6008010140566621804.jpg" alt="Афиша «Весенний дуэт» с танцующими парами" loading="lazy" width="905" height="1280">
+            <figcaption class="gallery__caption">Афиша «Весенний дуэт»</figcaption>
+          </figure>
+
+
+
+
+        </div>
+
+        <div class="interests">
+          <h3 class="interests__title">Personal interests</h3>
+          <ul class="interests__list">
+            <li class="sticker sticker--pink">Музыка и пение</li>
+            <li class="sticker sticker--blue">Танцы</li>
+            <li class="sticker sticker--green">Гитара (начальный уровень)</li>
+            <li class="sticker sticker--white">Рисование</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+
+        <h2 class="contact__title" id="contact-title">Let's make <em>something</em> together</h2>
+
+        <div class="contact__grid">
+
+          <form class="form" id="contact-form" action="#" method="post" novalidate>
+            <div class="form__field">
+              <label class="form__label" for="contact-name">Имя</label>
+              <input class="form__input" id="contact-name" name="name" type="text" autocomplete="name" required>
+              <p class="form__error" id="error-name" role="alert"></p>
+            </div>
+
+            <div class="form__field">
+              <label class="form__label" for="contact-email">Email</label>
+              <input class="form__input" id="contact-email" name="email" type="email" autocomplete="email" required>
+              <p class="form__error" id="error-email" role="alert"></p>
+            </div>
+
+            <div class="form__field">
+              <label class="form__label" for="contact-message">Сообщение</label>
+              <textarea class="form__input form__input--textarea" id="contact-message" name="message" rows="5" required></textarea>
+              <p class="form__error" id="error-message" role="alert"></p>
+            </div>
+
+            <button class="button button--light" type="submit">Send message</button>
+            <span class="form__thanks" aria-hidden="true">thank you ♡</span>
+
+            <p class="form__success" id="form-success" role="status"></p>
+          </form>
+
+          <div class="contact__links">
+            <h3 class="visually-hidden">Контакты</h3>
+            <ul class="social">
+              <li>
+                <a class="social__link" href="mailto:raminazununova0@gmail.com">
+                  <svg class="social__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="M3 7l9 6 9-6"></path>
+                  </svg>
+                  <span class="social__text">raminazununova0@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="https://www.instagram.com/ccattxaxa/" target="_blank" rel="noopener noreferrer">
+                  <svg class="social__icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <circle cx="17.5" cy="6.5" r="0.8"></circle>
+                  </svg>
+                  <span class="social__text">@ccattxaxa</span>
+                </a>
+              </li>
+            </ul>
+
+            <div class="stamp stamp--small" aria-hidden="true">
+              <span class="stamp__text">open to internships · 2026 ·</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p class="site-footer__text">© 2026 Ramina Zununova. Сделано на HTML, CSS, JS и с большим количеством слез.</p>
+      <a href="#home" class="back-to-top" id="backToTop" aria-label="Вернуться наверх">↑</a>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL (окно проекта) ============ -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal__inner">
+      <button class="modal__close" type="button" id="modal-close" aria-label="Закрыть окно">✕</button>
+
+      <div class="modal__media" id="modal-media"></div>
+
+      <div class="modal__content">
+        <p class="modal__meta" id="modal-meta"></p>
+        <h3 class="modal__title" id="modal-title"></h3>
+        <p class="modal__text" id="modal-text"></p>
+
+        <h4 class="modal__subtitle">Моя роль</h4>
+        <p class="modal__text" id="modal-role"></p>
+
+        <ul class="tags" id="modal-tags"></ul>
+
+        <div class="modal__nav">
+          <button class="button button--outline button--small" type="button" id="modal-prev">← Prev</button>
+          <button class="button button--outline button--small" type="button" id="modal-next">Next →</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Данные для модального окна: JS прочитает их и подставит в окно -->
+  <template id="project-data">
+    <div id="project-canteen"
+         data-title="Smart Canteen"
+         data-meta="School hackathon · team project"
+         data-text="Командный проект на тему управления школьным бюджетом. Мы искали решение проблемы пищевых отходов в школьных столовых: анализировали проблему, собирали информацию, считали экономию и придумали концепцию сайта и чат-бота."
+         data-role="Участвовала в сборе информации и подготовила видеопрезентацию. Сайт и чат-бот в проекте — это концепция, самостоятельно я их не разрабатывала."
+         data-tags="Research,Presentation,Teamwork"
+         data-image=""></div>
+
+    <div id="project-novel"
+         data-title="Online visual novel"
+         data-meta="GameLab · AIU · 3-day hackathon"
+         data-text="GameLab — клуб, связанный с разработкой игр. На трёхдневном хакатоне наша команда создавала онлайн-визуальную новеллу."
+         data-role="Участвовала в командной работе над игровой концепцией."
+         data-tags="Game concept,Teamwork"
+         data-image=""></div>
+
+    <div id="project-posters"
+         data-title="Spring Ball posters"
+         data-meta="Canva · school event · April 2025"
+         data-text="Две афиши для школьного конкурса «Весенний бал»: одна в стиле почтовых марок с ботаническими иллюстрациями, другая в тёплой коричнево-бордовой гамме с танцующими парами."
+         data-role="Создание визуальных материалов в Canva."
+         data-tags="Canva,Poster design,Composition"
+         data-image="assets/img/poster-spring-duet.jpg"></div>
+
+    <div id="project-techyard"
+         data-title="TechYard"
+         data-meta="IT club · Ala-Too College"
+         data-text="IT-клуб при Ala-Too College. Здесь собираются те, кто интересуется программированием, технологиями и командными проектами."
+         data-role="Участница клуба. Развиваю IT-навыки и учусь работать в команде."
+         data-tags="IT club,Community,Learning"
+         data-image=""></div>
+  </template>
+
+  
+</body>
+</html>
