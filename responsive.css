@@ -1,0 +1,346 @@
+/* =========================================================
+   responsive.css — адаптация под планшеты и телефоны
+   Подход: от большого экрана к маленькому (max-width).
+   Основные точки: 1199px, 899px, 599px
+   ========================================================= */
+
+/* ---------- 1. Устройства без мыши (телефоны, планшеты) ---------- */
+@media (hover: none), (pointer: coarse) {
+  .cursor {
+    display: none; /* кастомный курсор не нужен на touch */
+  }
+
+  .project-card {
+    transform: none; /* 3D-наклон отключён */
+  }
+}
+
+/* ---------- 2. Малые ноутбуки и планшеты: до 1199px ---------- */
+@media (max-width: 1199px) {
+  .hero__grid {
+    grid-template-columns: 6fr 5fr;
+  }
+
+  .about__grid,
+  .skills__grid {
+    gap: var(--space-6);
+  }
+
+  /* проекты в 2 колонки */
+  .project-card--large { grid-column: span 12; }
+  .project-card--medium { grid-column: span 6; }
+  .project-card--small { grid-column: span 6; margin-left: 0; }
+  .project-card--medium:nth-of-type(2) { margin-top: 0; }
+
+  .contact__grid {
+    gap: var(--space-6);
+  }
+}
+
+/* ---------- 3. Планшеты и телефоны: до 899px ---------- */
+@media (max-width: 899px) {
+  /* Навигация: бургер и выезжающая панель */
+  .nav__cta {
+    display: none;
+  }
+
+  .nav__toggle {
+    position: relative;
+    z-index: 130;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav__toggle-line {
+    width: 26px;
+    height: 2px;
+    background-color: var(--color-ink);
+    transition: transform var(--time-fast) var(--ease);
+  }
+
+  .nav__toggle[aria-expanded="true"] .nav__toggle-line:first-child {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .nav__toggle[aria-expanded="true"] .nav__toggle-line:last-child {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
+
+  .nav__logo {
+    position: relative;
+    z-index: 130;
+  }
+
+  .nav__list {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-12) var(--gutter) var(--space-8);
+    background-color: var(--color-pink);
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: transform var(--time-base) var(--ease), visibility 0s linear var(--time-base);
+  }
+
+  .nav__list.is-open {
+    visibility: visible;
+    transform: translateX(0);
+    transition: transform var(--time-base) var(--ease);
+  }
+
+  .nav__link {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+
+  /* Home: фото первым, текст под ним */
+  .hero__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block: var(--space-4) var(--space-8);
+  }
+
+  .hero__collage {
+    order: -1;
+    width: min(100%, 420px);
+    min-height: 400px;
+    margin-inline: auto;
+  }
+
+  .hero__line--indent {
+    padding-left: 0;
+  }
+
+  /* About */
+  .about__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about__photos {
+    max-width: 480px;
+  }
+
+  .about__content {
+    margin-left: 0;
+  }
+
+  /* Skills: без sticky, одна колонка */
+  .skills__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skills__intro {
+    position: static;
+  }
+
+  /* Projects: одна колонка с небольшим смещением чётных карточек */
+  .project-card--large,
+  .project-card--medium,
+  .project-card--small {
+    grid-column: span 12;
+  }
+
+  .project-card:nth-of-type(even) {
+    margin-left: var(--space-3);
+  }
+
+  .project-card:nth-of-type(odd) {
+    margin-right: var(--space-3);
+  }
+
+  /* Experience */
+  .counters {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: var(--space-8);
+  }
+
+  /* Таймлайн: линия слева, карточки справа */
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline__item,
+  .timeline__item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-inline: var(--space-6) 0;
+  }
+
+  .timeline__item::after,
+  .timeline__item:nth-child(even)::after {
+    right: auto;
+    left: 0;
+  }
+
+  /* Creative: галерея в 2 колонки */
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .gallery__item--wide,
+  .gallery__item--tall,
+  .gallery__item:nth-child(3),
+  .gallery__item:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+    margin-top: 0;
+  }
+
+  .gallery__item--wide {
+    grid-column: 1 / -1;
+  }
+
+  /* Contact */
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__title {
+    max-width: none;
+  }
+
+  .contact__links .stamp {
+    align-self: flex-start;
+  }
+}
+
+/* ---------- 4. Телефоны: до 599px ---------- */
+@media (max-width: 599px) {
+  .section__title {
+    margin-bottom: var(--space-4);
+  }
+
+  /* Home */
+  .hero {
+    min-height: 0;
+  }
+
+  .hero__masthead {
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero__collage {
+    min-height: 340px;
+  }
+
+  .hero__collage .stamp {
+    width: 96px;
+    height: 96px;
+  }
+
+  /* оставляем только часть декора, чтобы не перегружать экран */
+  .hero__collage .sticker--blue,
+  .hero__collage .sticker--green {
+    display: none;
+  }
+
+  .hero__buttons {
+    flex-direction: column;
+  }
+
+  .hero__buttons .button {
+    width: 100%;
+  }
+
+  /* Skills: уровень под названием */
+  .skill-item__button {
+    flex-wrap: wrap;
+    gap: 0.25rem var(--space-2);
+  }
+
+  .skill-item__button::before {
+    display: none;
+  }
+
+  .skill-item__level {
+    flex-basis: 100%;
+    order: 2;
+  }
+
+  /* Projects */
+  .filters {
+    flex-wrap: nowrap;
+    max-width: 100%;
+    padding-bottom: var(--space-1);
+    overflow-x: auto; /* горизонтальный скролл только внутри блока фильтров */
+  }
+
+  .filter {
+    flex: none;
+  }
+
+  .project-card {
+    padding: var(--space-2);
+  }
+
+  /* Experience */
+  .counter__number {
+    font-size: 3.5rem;
+  }
+
+  .timeline__item,
+  .timeline__item:nth-child(even) {
+    padding-left: var(--space-4);
+  }
+
+  /* Creative */
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__item--wide {
+    grid-column: auto;
+  }
+
+  /* Contact */
+  .contact__title {
+    font-size: 2.5rem;
+  }
+
+  .form__input {
+    font-size: 1rem; /* без автозума на iOS задаётся min 16px */
+  }
+
+  .contact__links .stamp {
+    display: none;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Модальное окно как bottom sheet */
+  .modal {
+    width: 100%;
+    max-width: 100%;
+    max-height: 92vh;
+    margin: auto 0 0;
+    border-radius: var(--radius-card) var(--radius-card) 0 0;
+  }
+
+  .modal__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__media {
+    min-height: 200px;
+    max-height: 260px;
+  }
+
+  .modal__content {
+    padding: var(--space-3);
+  }
+}
