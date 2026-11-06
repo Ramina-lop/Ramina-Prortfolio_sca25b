@@ -1,0 +1,648 @@
+/* =========================================================
+   components.css — повторяющиеся компоненты и глобальный UI
+   ========================================================= */
+
+/* ---------- 1. Кнопки ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 52px;
+  padding: 0.85rem 1.75rem;
+  border: var(--line);
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  line-height: 1;
+  transition: transform var(--time-fast) var(--ease), background-color var(--time-fast), color var(--time-fast), border-color var(--time-fast);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button--primary {
+  background-color: var(--color-burgundy);
+  border-color: var(--color-burgundy);
+  color: var(--color-white);
+}
+
+.button--primary:hover {
+  background-color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+.button--outline {
+  background-color: transparent;
+}
+
+.button--outline:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.button--light {
+  background-color: var(--color-pink);
+  border-color: var(--color-pink);
+  color: var(--color-burgundy);
+}
+
+.button--light:hover {
+  background-color: var(--color-white);
+}
+
+.button--small {
+  min-height: 44px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- 2. Декор: washi-лента ---------- */
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  z-index: 2;
+  width: 96px;
+  height: 28px;
+  background-color: var(--color-pink);
+  opacity: 0.85;
+  transform: translateX(-50%) rotate(-4deg);
+  /* зубчатые края ленты */
+  clip-path: polygon(0 0, 100% 0, 98% 25%, 100% 50%, 98% 75%, 100% 100%, 0 100%, 2% 75%, 0 50%, 2% 25%);
+}
+
+.tape--pink { background-color: var(--color-pink); }
+.tape--blue { background-color: var(--color-blue); }
+.tape--green { background-color: var(--color-green); }
+
+/* ---------- 3. Декор: стикеры ---------- */
+.sticker {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: var(--line);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  transition: transform var(--time-fast) var(--ease);
+}
+
+.sticker--pink { background-color: var(--color-pink); }
+.sticker--blue { background-color: var(--color-blue); }
+.sticker--green { background-color: var(--color-green); }
+.sticker--white { background-color: var(--color-white); }
+
+/* ---------- 4. Декор: круглый штамп ---------- */
+.stamp {
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  padding: var(--space-2);
+  border: 2px dashed var(--color-burgundy);
+  border-radius: 50%;
+  background-color: var(--color-pink);
+  color: var(--color-burgundy);
+  text-align: center;
+  animation: stamp-spin 24s linear infinite;
+}
+
+.stamp__text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stamp--small {
+  width: 110px;
+  height: 110px;
+  background-color: transparent;
+  border-color: var(--color-pink);
+  color: var(--color-pink);
+}
+
+@keyframes stamp-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- 5. Теги ---------- */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.tag {
+  padding: 0.2rem 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  line-height: 1.5;
+}
+
+/* ---------- 6. Полароид (фото-«отпечаток») ---------- */
+.polaroid {
+  position: relative;
+  padding: 10px 10px 0;
+  background-color: var(--color-white);
+  border-radius: var(--radius-photo);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--time-base) var(--ease);
+}
+
+.polaroid img,
+.polaroid__video {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background-color: var(--color-ink);
+}
+
+.polaroid__caption {
+  padding: var(--space-1) 0 var(--space-2);
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* ---------- 7. Навигация (глобальный header) ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--header-height);
+  background-color: rgba(251, 248, 245, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: box-shadow var(--time-fast), background-color var(--time-fast);
+}
+
+.site-header.is-scrolled {
+  background-color: rgba(251, 248, 245, 0.92);
+  box-shadow: 0 1px 0 rgba(21, 21, 21, 0.12);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.nav__logo {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav__logo-dot {
+  color: var(--color-burgundy);
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 1.8vw, 1.75rem);
+}
+
+.nav__link {
+  position: relative;
+  padding-block: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* волнистая бордовая линия у активного/hover пункта */
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 6px;
+  background: repeating-linear-gradient(135deg, transparent 0 3px, var(--color-burgundy) 3px 4px);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--time-fast) var(--ease), opacity var(--time-fast);
+}
+
+.nav__link:hover::after,
+.nav__link.is-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.nav__toggle {
+  display: none; /* показывается в responsive.css */
+}
+
+/* Индикатор прокрутки (значение --progress задаёт JS) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 150;
+  height: 3px;
+  background-color: var(--color-burgundy);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left;
+}
+
+/* ---------- 8. Кастомный курсор (позицию задаёт JS) ---------- */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background-color: var(--color-burgundy);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(var(--cursor-x, 0px), var(--cursor-y, 0px));
+  transition: opacity var(--time-fast), width var(--time-fast) var(--ease), height var(--time-fast) var(--ease), margin var(--time-fast) var(--ease);
+}
+
+.cursor.is-active {
+  opacity: 0.85;
+}
+
+.cursor.is-large {
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  opacity: 0.35;
+}
+
+/* ---------- 9. Карточки проектов ---------- */
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  /* --tilt-x / --tilt-y задаёт JS для 3D-наклона */
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform var(--time-base) var(--ease);
+}
+
+.project-card:hover {
+  z-index: 2;
+}
+
+.project-card--pink { background-color: var(--color-pink); }
+.project-card--blue { background-color: var(--color-blue); }
+.project-card--green { background-color: var(--color-green); }
+.project-card--white { background-color: var(--color-white); }
+
+.project-card.is-hidden {
+  display: none;
+}
+
+.project-card__preview {
+  overflow: hidden;
+  border: var(--line);
+  border-radius: var(--radius-photo);
+  background-color: var(--color-paper);
+  aspect-ratio: 16 / 10;
+}
+
+.project-card__preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform var(--time-base) var(--ease);
+}
+
+.project-card:hover .project-card__preview img {
+  transform: scale(1.04);
+}
+
+.project-card__placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-style: italic;
+  line-height: 0.95;
+  text-align: center;
+  color: var(--color-burgundy);
+}
+
+.project-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.project-card__meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.06em;
+}
+
+.project-card__title {
+  font-size: var(--text-h3);
+}
+
+.project-card__button {
+  margin-top: auto;
+}
+
+/* ---------- 10. Фильтры проектов ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.filter {
+  min-height: 44px;
+  padding: 0.5rem 1.25rem;
+  border: var(--line);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  transition: background-color var(--time-fast), color var(--time-fast);
+}
+
+.filter:hover {
+  background-color: var(--color-blue);
+}
+
+.filter.is-active {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* ---------- 11. Форма ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.form__input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0.75rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1.5px solid currentColor;
+  border-radius: 0;
+  font-size: 1.1rem;
+  transition: border-color var(--time-fast);
+}
+
+.form__input--textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form__input:focus {
+  outline: none;
+  border-bottom-width: 3px;
+}
+
+.form__input.is-invalid {
+  border-bottom-style: dashed;
+}
+
+.form__error,
+.form__success {
+  font-size: 0.9rem;
+}
+
+.form__error:empty,
+.form__success:empty {
+  display: none;
+}
+
+.form__thanks {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  transform: rotate(-4deg);
+}
+
+/* ---------- 12. Соцсети / контакты ---------- */
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.social__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid currentColor;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+  overflow-wrap: anywhere;
+  transition: padding-left var(--time-fast) var(--ease);
+}
+
+.social__link:hover {
+  padding-left: var(--space-2);
+}
+
+.social__icon {
+  flex: none;
+}
+
+/* ---------- 13. Модальное окно проекта ---------- */
+.modal {
+  width: min(960px, 92vw);
+  max-height: 90vh;
+  margin: auto;
+  padding: 0;
+  overflow: auto;
+  border: var(--line);
+  border-radius: var(--radius-card);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.modal[open] {
+  animation: modal-in 0.6s var(--ease);
+}
+
+.modal::backdrop {
+  background-color: rgba(107, 29, 44, 0.55);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.modal__inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal__close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: var(--line);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  transition: transform var(--time-fast) var(--ease);
+}
+
+.modal__close:hover {
+  transform: rotate(90deg);
+}
+
+.modal__media {
+  display: grid;
+  place-items: center;
+  min-height: 280px;
+  background-color: var(--color-pink);
+}
+
+.modal__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-4) var(--space-4);
+}
+
+.modal__meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+}
+
+.modal__title {
+  font-size: var(--text-h3);
+}
+
+.modal__subtitle {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-mono);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modal__nav {
+  display: flex;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    opacity: 1;
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+/* ---------- 14. Hover только для устройств с мышью ---------- */
+@media (hover: hover) {
+  .polaroid:hover,
+  .fact:hover {
+    transform: rotate(0deg) translateY(-6px);
+  }
+
+  .sticker:hover {
+    transform: translateY(-6px) rotate(-4deg);
+  }
+}
+
+
+/* ---------- 15. Плавающая кнопка Back to Top ---------- */
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 50px;
+
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border: var(--line);
+  border-radius: 50%;
+
+  font-size: 24px;
+  text-decoration: none;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-green);
+}
